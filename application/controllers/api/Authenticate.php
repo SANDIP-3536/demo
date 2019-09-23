@@ -33,5 +33,19 @@ class Authenticate extends REST_Controller {
 					
 		}
 	}
-    	
+
+    public function login_post_name()
+    {
+        $data = $this->input->post();
+        $login = $this->db->where('username',$data['username'])->get('mocl_users')->result_array();
+
+        if(empty($login) || $login[0]['id'] == '' )
+        {
+            return 1;
+        }
+        else
+        {
+                    
+        }
+    }    	
 }
